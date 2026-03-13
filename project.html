@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazon Clone - Full Experience</title>
+    <link rel="stylesheet" href="copy.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+    <div id="sidebar" class="sidebar">
+        <div class="sidebar-header">
+            <i class="fa-solid fa-circle-user"></i> Hello, Sign In
+            <span class="close-sidebar" onclick="toggleSidebar()">&times;</span>
+        </div>
+        <div class="sidebar-content">
+            <h3>Trending</h3>
+            <p>Best Sellers</p>
+            <p>New Releases</p>
+            <hr>
+            <h3>Shop By Category</h3>
+            <p onclick="showCategory('Electronics')">Electronics</p>
+            <p onclick="showCategory('Clothing')">Clothing</p>
+            <p onclick="showCategory('Beauty')">Beauty & Makeup</p>
+            <p onclick="showCategory('Home Decor')">Home Decor</p>
+        </div>
+    </div>
+
+    <div id="signin-modal" class="modal">
+        <div class="modal-content">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" width="100">
+            <div class="login-box">
+                <h1>Sign-In</h1>
+                <label>Email or mobile phone number</label>
+                <input type="text">
+                <button class="amazon-btn" onclick="closeLogin()">Continue</button>
+                <p class="terms">By continuing, you agree to Amazon's Conditions of Use.</p>
+            </div>
+            <button class="close-modal" onclick="closeLogin()">Cancel</button>
+        </div>
+    </div>
+
+    <header>
+        <nav class="navbar">
+            <div class="nav-logo border" onclick="showHome()">
+                <div class="logo"></div>
+            </div>
+            <div class="nav-address border hide-mobile">
+                <p class="add-first">Deliver to</p>
+                <div class="add-icon"><i class="fa-solid fa-location-dot"></i><p class="add-second">India</p></div>
+            </div>
+            <div class="nav-search">
+                <input id="search-input" placeholder="Search Amazon" class="search-input">
+                <div class="search-icon" onclick="handleSearch()"><i class="fa-solid fa-magnifying-glass"></i></div>
+            </div>
+            <div class="nav-signin border" onclick="openLogin()">
+                <p><span>Hello, sign in</span></p>
+                <p class="nav-second">Account & Lists</p>
+            </div>
+            <div class="nav-cart border">
+                <i class="fa-solid fa-cart-shopping"></i><span>Cart</span>
+            </div>
+        </nav>
+
+        <div class="panel">
+            <div class="panel-all" onclick="toggleSidebar()"><i class="fa-solid fa-bars"></i> All</div>
+            <div class="panel-ops">
+                <p onclick="showDeals()">Today's Deals</p>
+                <p onclick="showStaticPage('Customer Service')">Customer Service</p>
+                <p onclick="showStaticPage('Gift Cards')">Gift Cards</p>
+                <p onclick="showStaticPage('Sell')">Sell</p>
+            </div>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <div id="home-view">
+            <div class="hero-section"></div>
+            <div class="shop-section">
+                <div class="box" onclick="showCategory('Electronics')">
+                    <h2>Electronics</h2>
+                    <div class="box-img" style="background-image: url('https://images.unsplash.com/photo-1498049794561-7780e7231661?w=500');"></div>
+                    <p class="see-more">Shop Latest Tech</p>
+                </div>
+                <div class="box" onclick="showCategory('Clothing')">
+                    <h2>Clothing</h2>
+                    <div class="box-img" style="background-image: url('https://tse2.mm.bing.net/th/id/OIP.A1nPQxVH6QHJhJ9cgNLhbgHaEO?rs=1&pid=ImgDetMain&o=7&rm=3');"></div>
+                    <p class="see-more">New Trends</p>
+                 </div>
+                <div class="box" onclick="showCategory('Beauty')">
+                    <h2>Beauty</h2>
+                    <div class="box-img" style="background-image: url('https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=500');"></div>
+                    <p class="see-more">Top Brands</p>
+                </div>
+                <div class="box" onclick="showCategory('Home Decor')">
+                    <h2>Home Decor</h2>
+                    <div class="box-img" style="background-image: url('https://images.unsplash.com/photo-1513519245088-0e12902e5a38?w=500');"></div>
+                    <p class="see-more">Refresh Your Space</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="dynamic-view" style="display:none; padding: 20px;">
+            <h1 id="view-title">Category Name</h1>
+            <div class="shop-section" id="items-grid"></div>
+        </div>
+        
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
